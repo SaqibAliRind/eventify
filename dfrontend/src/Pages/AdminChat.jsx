@@ -10,6 +10,9 @@ import './AdminChat.css';
 const getAdminToken = () => localStorage.getItem('eventify_token') || '';
 
 const socket = io(SOCKET_URL, {
+  transports: ['polling', 'websocket'],
+  reconnectionAttempts: 3,
+  reconnectionDelay: 5000,
   auth: (cb) => {
     cb({ token: getAdminToken() });
   }
