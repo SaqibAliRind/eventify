@@ -1,33 +1,49 @@
 {
   "version": 2,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "src": "api/index.js",
+      "use": "@vercel/node"
     },
     {
-      "source": "/health",
-      "destination": "/api/index.js"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dfrontend/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/health",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/sitemap.xml",
-      "destination": "/api/index.js"
+      "src": "/sitemap.xml",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/user/(.*)",
-      "destination": "/api/index.js"
+      "src": "/user/(.*)",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/admin/(.*)",
-      "destination": "/api/index.js"
+      "src": "/admin/(.*)",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/dfrontend/dist/assets/$1"
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/(.*)",
-      "destination": "/dfrontend/dist/$1"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
