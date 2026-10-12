@@ -1,0 +1,58 @@
+.top-notification-bar {
+    position: fixed;
+    top: 80px; /* Below Navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.top-notification-bar.error {
+    border-left: 4px solid #ef4444;
+}
+
+.top-notification-bar.info {
+    border-left: 4px solid #3b82f6;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.close-notification {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.close-notification:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .top-notification-bar {
+        top: 70px;
+        width: 95%;
+        padding: 0.75rem 1rem;
+    }
+}

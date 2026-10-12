@@ -1,0 +1,145 @@
+.reviews-page {
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.reviews-hero {
+    padding: 120px 0 60px;
+    background: white;
+    text-align: center;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #64748b;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #B76E79;
+}
+
+.reviews-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #1a1a2e;
+    margin-bottom: 15px;
+}
+
+.reviews-hero p {
+    color: #64748b;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.all-reviews-grid {
+    padding: 80px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 40px;
+}
+
+.full-review-card {
+    padding: 40px;
+    background: white;
+    border-radius: 24px;
+    border: 1px solid rgba(183, 110, 121, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-text {
+    font-size: 1.2rem;
+    color: #334155;
+    line-height: 1.6;
+    margin: 20px 0 30px;
+    font-style: italic;
+}
+
+.review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 25px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-profile img, .avatar-placeholder {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    background: #f1f5f9;
+    color: #B76E79;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.user-meta h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1a1a2e;
+}
+
+.user-meta p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.loading-state {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #f1f5f9;
+    border-bottom-color: #B76E79;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,226 @@
+/* AuthForm.css */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 450px;
+    /* Default for login */
+    margin: 0.5rem auto;
+    transition: max-width 0.3s ease;
+}
+
+.auth-container.wide-container {
+    max-width: 800px;
+    /* Wider for register */
+}
+
+.auth-toggle {
+    display: flex;
+    background: #2a2a2a;
+    border-radius: 30px;
+    padding: 4px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    border: none;
+    background: transparent;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: white;
+    box-shadow: 0 2px 10px rgba(229, 46, 113, 0.4);
+}
+
+.auth-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Grid Layout for Registration */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 0.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #e52e71;
+}
+
+.error {
+    color: #ff4757;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.role-select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.role-select option {
+    background: #1a1a1a;
+    color: white;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.auth-footer .link {
+    color: #ff8a00;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.auth-footer .link:hover {
+    text-decoration: underline;
+}
+
+/* Forgot Password Link */
+.forgot-link {
+    text-align: right;
+    margin-bottom: 0.5rem;
+}
+
+.forgot-link .link {
+    color: #ff8a00;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-link .link:hover {
+    color: #e52e71;
+    text-decoration: underline;
+}
+
+/* Form Description Text */
+.form-description {
+    color: #aaa;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .auth-container.wide-container {
+        max-width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+    }
+
+    .auth-container {
+        padding: 1rem;
+    }
+
+    .auth-form {
+        padding: 1.5rem;
+    }
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.error-alert {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid #ff4757;
+    color: #ff4757;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}

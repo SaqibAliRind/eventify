@@ -1,0 +1,320 @@
+:root {
+    --admin-bg: #000000;
+    --admin-card: #0a0a0a;
+    --admin-sidebar: #000000;
+    --admin-accent: #3b82f6;
+    --admin-accent-glow: rgba(59, 130, 246, 0.5);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --border-color: rgba(255, 255, 255, 0.2);
+}
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--admin-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 20%;
+    min-width: 240px;
+    background-color: var(--admin-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    position: fixed;
+    height: 100vh;
+    z-index: 50;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--admin-accent);
+}
+
+.nav-item.active {
+    border-left: 4px solid var(--admin-accent);
+}
+
+.sidebar-footer {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Main Content */
+.admin-main {
+    margin-left: 20%;
+    width: 80%;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+}
+
+.dashboard-header p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.admin-main .stat-card {
+    background-color: var(--admin-card);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.admin-main .stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.admin-main .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--admin-accent-glow) 0%, transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.admin-main .stat-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--admin-accent);
+}
+
+.stat-info .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+}
+
+.stat-info .label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-card {
+    background-color: var(--admin-card);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.chart-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.recharts-responsive-container {
+    min-height: 300px;
+}
+
+/* Polygon Chart Container */
+.polygon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-main {
+        margin-left: 25%;
+        width: 75%;
+    }
+    
+    .admin-sidebar {
+        width: 25%;
+        min-width: 200px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Base styles for mobile elements (hidden on desktop) */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    /* Keep it accessible */
+    z-index: 1100;
+    /* Ensure it stays above everything */
+    background: var(--admin-accent);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.mobile-menu-btn:active {
+    transform: scale(0.95);
+}
+
+.close-sidebar-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .admin-main {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem; /* Reduced padding for mobile */
+    }
+
+    .admin-sidebar {
+        width: 80%; /* Takes up most of screen but leaves edge */
+        max-width: 300px;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        background-color: var(--admin-sidebar);
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
+        padding-top: 5rem; /* Add clear space for the toggle button */
+    }
+
+    .admin-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(2px);
+        z-index: 999;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .close-sidebar-btn {
+        display: block;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+        margin-top: 2rem; /* Give space for hamburger */
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack stats on mobile */
+    }
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.sidebar-logo {
+    margin-bottom: 0;
+    /* Reset for flex alignment */
+}

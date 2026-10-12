@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/user/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/dfrontend/dist/assets/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/dfrontend/dist/$1"
+    }
+  ]
+}
